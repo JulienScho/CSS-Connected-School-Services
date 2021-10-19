@@ -1,0 +1,17 @@
+.quill {
+    width: 80%;
+    height: 150px;
+    margin: 20px auto;
+
+    
+
+
+
+    & strong {
+        font-weight: bold;
+    }
+
+    & em {
+        font-style: italic;
+    }
+}

@@ -1,0 +1,41 @@
+.sidebar {
+    display: none;
+}
+ @media screen and (min-width: 992px) { 
+    .sidebar {
+        display: block;
+        background-color:#60d399;
+        width: 20%;
+        
+        &__menu {
+            margin: 2rem 0rem;
+        }
+
+        &__link {
+            color: #f7f1e9;
+            margin-bottom: 2rem;       
+            font-weight: 600;
+        }
+
+        &__link :hover {
+            color: #000;
+            background-color:rgb(52, 183, 117)
+        }
+
+        .active {
+            color: #000;
+        } 
+
+        &__item {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            border-bottom: 0.1em solid  #f7f1e9;
+
+        }
+
+        &__text {
+            margin-left: 1rem;
+        }
+    }
+}

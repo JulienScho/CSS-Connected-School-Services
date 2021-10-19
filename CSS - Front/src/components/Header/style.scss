@@ -1,0 +1,109 @@
+.header {
+    padding: 0.5rem 0.5rem;
+    width: 100%;
+    color: #222;
+    box-shadow: rgb(34, 34, 34, 20%) 0em 0.1em 2em;
+    position: relative;
+    position: fixed;
+    height: 7rem;
+    background-color: #fff;
+    z-index: 1001;
+
+    .burger-menu {
+        background: none;
+        border:0;
+
+        @media screen and (min-width: 992px) { 
+            display: none;
+        }
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        &__logo {
+            height: 6em;
+        }
+
+        &__logo:hover {
+            opacity: 0.5;
+        }
+
+        &__list {
+            text-align: center;
+            padding: 0 2em;
+
+            @media screen and (min-width: 992px) {
+                display: flex; 
+            }   
+        }
+
+        &__item {
+            padding: 1.5rem;
+            border-bottom: 0.1em solid #e6e7e8;
+
+
+            @media screen and (min-width: 992px) { 
+                padding: 0 2rem;
+                border: 0;
+                color: #717171;
+
+                &:hover{
+                    color: #222;
+                    
+                }
+
+            }
+        }
+
+        .menuList__desktop {
+            display: none;
+            @media screen and (min-width: 992px) { 
+                display: block;
+            }
+        }
+
+        .menuList__burger {
+            position: fixed;
+            top: 4.8em;
+            right: 0;
+            background-color: #fff3d7;
+            width: 100%;
+            transition: 0.7s transform cubic-bezier(0.18, 0.54, 0.61, 1.19);
+            z-index: 2;
+            font-weight: 600;
+            font-size: 1.5em;
+            min-height: 15.6em;
+        
+        
+            &--hidden {
+                transform: translateX(100%);
+            }
+            
+            @media screen and (min-width: 992px) { 
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 992px) { 
+
+            .active {
+                border-bottom: 0.2em solid #60d399;
+                font-weight: 500;
+                color: #222;
+            }
+        }
+    }
+}
+
+.personal-space {
+    display : none;
+
+    @media screen and (min-width: 992px) { 
+        display: block;
+    }
+}

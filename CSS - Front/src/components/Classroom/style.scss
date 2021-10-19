@@ -1,0 +1,46 @@
+@use '../../styles/vars';
+
+.teacherClassroom {
+
+    &__info {
+        font-style: italic;
+        color: vars.$grey;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    &__list {
+        margin-bottom: 2rem;
+        border-bottom: 0.1em solid vars.$greyLight;
+        padding-bottom: 1rem;
+    }
+
+    &__item {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: vars.$grey;
+        margin-bottom: 0.5rem;
+
+        &:hover {
+            color: vars.$greyInactiveAlt;
+        }
+    }
+
+    &__link {
+        transition:  0.2s font-size ease-in;
+    }
+
+    &__link.active {
+        color: vars.$green;
+        font-size: 1.4em;
+        text-decoration: underline;
+    }
+
+    .students__item {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+

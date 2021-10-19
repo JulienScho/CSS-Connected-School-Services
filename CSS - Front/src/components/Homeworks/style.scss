@@ -1,0 +1,228 @@
+@use '../../styles/vars';
+
+.homeworks {
+    
+    &__article {
+        border-top: dotted 0.2em;
+        border-color: vars.$greyLight;
+        margin-top: 1rem;
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+
+        @media screen and (min-width: 992px) { 
+            flex-direction: row;
+        }
+        
+        &__expiration {
+            color: vars.$grey;
+        }
+
+        &__date {
+            font-weight: 800;
+            font-size: 1.5em;
+            color: vars.$blue;
+        }
+
+        &__title {
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        &__left{
+            width: 20%;
+            margin-right: 2rem;
+        }
+    }
+    
+    &__right {
+        margin-top: 1rem;
+    }
+    
+}
+
+//---Teacher Homeworks/announces administration---//
+.teacherHomeworks {
+
+    &__navList {
+        margin-top: 2rem;
+        border-bottom: 0.1em solid vars.$greyLight;
+        
+
+        @media screen and (min-width: 992px) { 
+            display: flex;
+            margin-bottom: 2rem; 
+            padding-bottom: 1rem; 
+        }
+    }
+
+        &__navLink {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: vars.$greyInactive;
+            margin-right: 2rem;
+
+        }
+        
+        &__navLink.active {
+            color: vars.$blue;
+        }
+
+            &__navItem {
+                transition: 0.2s transform cubic-bezier(.17,.67,.83,.67);
+            
+                &:hover {
+                    transform: scale(1.1);
+                    color: vars.$greyInactiveAlt;
+                }
+            }
+    
+    &__info {
+        font-style: italic;
+        color: vars.$grey;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    &__classroomList {
+        margin-bottom: 2rem;
+        border-bottom: 0.1em solid vars.$greyLight;
+        padding-bottom: 1rem;
+    }
+    
+    &__classroomItem {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: vars.$grey;
+        margin-bottom: 0.5rem;
+
+        &:hover {
+            color: vars.$greyInactiveAlt;
+        }
+    }
+
+    &__classroomLink {
+        transition:  0.2s font-size ease-in;
+    }
+
+    &__classroomLink.active{
+        color: vars.$green;
+        font-size: 1.4em;
+        text-decoration: underline;
+    }
+
+    
+}
+
+//--- Edit homeworks feature --//
+
+.homeworks {
+
+    .homework__article {
+        border: 0.1em solid vars.$grey;
+        padding: 4rem 1rem 0;
+        margin-bottom: 1rem;
+        border-radius: 1em;
+        position: relative;
+
+        @media screen and (min-width: 992px) { 
+            padding: 1rem; 
+        }
+
+    }
+
+    .homeworkList__button__container {
+        position: absolute;
+        right: 1em;
+        top: 0;
+
+        .homeworkList__btnEdit {
+            background-color: vars.$green;
+            color: #fff;
+            border: 0;
+            padding: 0.5rem;
+
+            &:hover {
+                color: #000;
+                background-color: vars.$greenAlt;
+            }
+        }
+
+        .homeworkList__btnDelete {
+            background-color: vars.$deleteColor;
+            color: #fff;
+            border: 0;
+            padding: 0.5rem;
+
+            &:hover {
+                color: #000;
+                background-color: vars.$deleteColorAlt;
+            }
+          }
+    }
+
+    .homework__article__expiration {
+        font-weight: 600;
+    }
+}
+
+.homework__formEdit {
+    margin-bottom: 5rem;
+
+    .homework__btnEdit {
+        font-weight: 600;
+        padding: 0.7rem;
+        background-color: vars.$green;
+        border: 0;
+        color: #fff;
+        margin-top: 2rem;
+        width: 10em;
+        align-self: flex-end;
+    
+        &:hover {
+          color: #000;
+          background-color:vars.$greenAlt;
+        }
+      }
+}
+
+//--- Add homeworks feature --//
+.addHomeworks {
+    &__form {
+        margin-top: 0.5rem;
+
+        .select--category { 
+         padding: 0.6rem;
+         margin-right: 1rem;
+         margin-bottom: 0.5rem;
+        }
+
+        .select--class {
+            padding: 0.6rem;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .select--date {
+            padding: 0.5rem;
+        }
+
+        &--submit {
+            font-weight: 600;
+            padding: 0.7rem;
+            background-color: vars.$green;
+            border: 0;
+            color: #fff;
+            margin-top: 1rem;
+            width: 10em;
+            align-self: flex-end;
+
+            &:hover {
+                color: #000;
+                background-color:vars.$greenAlt;
+              }
+
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.intro {
+    margin: 2rem 0;
+
+    &__title {
+        color: rgb(34, 34, 34);
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    &__content{
+        margin-bottom: 2rem;
+
+        @media screen and (min-width: 992px) { 
+            margin-bottom: 7rem;
+        }
+    }
+
+    &__image {
+        background-image: url('../../assets/img/school.jpg');
+        height: 26rem;
+        background-size: cover;
+        background-position: center;
+    }
+}

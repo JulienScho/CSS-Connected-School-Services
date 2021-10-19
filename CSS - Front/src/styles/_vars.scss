@@ -1,0 +1,27 @@
+@use 'sass:math';
+@use 'sass:color';
+
+
+$cream: #f7f1e9;
+$blue: #52A9E1;
+$blueAlt: color.scale($blue, $blackness: 15%);
+$blueLight: color.scale($blue, $lightness: 85%);
+$green: #60d399;
+$greenAlt: color.scale($green, $blackness: 15%);
+$grey: #717171;
+$greyLight: color.scale($grey, $lightness: 80%);
+$greyInactive: #C3D1DD;
+$greyInactiveAlt: color.scale($greyInactive, $blackness: 20%);
+$deleteColor: #C8351B;
+$deleteColorAlt: color.scale($deleteColor, $lightness: 50%);
+
+$fontFamily: Montserrat, Helveltica, Arial, sans-serif;
+
+
+/*
+$menuWidth: 250px;
+$smallMenuWidth: 150px;
+$small: 700px;
+$gutter: 1.5rem;
+$halfGutter: math.div($gutter, 2);
+*/

@@ -1,0 +1,39 @@
+@use 'reset';
+@use 'vars';
+
+
+body {
+  font-family: vars.$fontFamily;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+select, input, button {
+  font-family: vars.$fontFamily;
+}
+
+.quill {
+  max-height: 50em;
+  height: 100%;
+}
+.quill .ql-bubble {
+  font-family: vars.$fontFamily;
+  font-size: 1em;
+
+  a {
+    color: vars.$blue;
+  }
+}

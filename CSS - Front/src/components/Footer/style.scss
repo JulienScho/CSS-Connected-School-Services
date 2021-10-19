@@ -1,0 +1,46 @@
+@use '../../styles/vars';
+
+.footer {
+    margin-top: auto;
+    background-color: #fff;
+    padding: 0.5rem;
+    box-shadow: 0.2em 0.2em 1em 0.2em rgb(34, 34, 34, 20%);
+    width: 100%;
+
+    &__nav {
+        display: flex;
+        font-size: 0.8em;
+        flex-direction: column;
+        align-items: center;
+
+        @media screen and (min-width: 992px) { 
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0 20rem;
+        }
+    }
+
+    &__contact {
+        display: flex;
+        align-items: baseline;
+    }
+   
+
+    &__link {
+        text-decoration: none;
+        color: vars.$grey;
+        margin-top: 0.5rem;
+
+        &:hover {
+            color: #000;
+        }
+
+        &--mail{
+            margin-left: 0.5rem;
+        }
+
+    }
+    .active {
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,366 @@
+@use '../../styles/vars';
+
+//--Students Marks--// 
+
+.table__content {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    border-radius: 1em 1em 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+    width: 100%;
+    font-weight: 600;
+    position: relative;
+
+    @media screen and (min-width: 992px) {
+        width: 90%;
+        align-self: center;
+      }
+
+    &--column th {
+        border-bottom: 3px solid vars.$green;
+        padding: 0.8rem;
+    }
+
+    &--measure {
+        padding: 10px;
+        text-align: left;
+        border: solid 1px lightgrey;
+        width: 40%;
+        // font-weight: 600;
+    }
+
+    &--marks {
+        background-color: rgb(52, 183, 117);
+        text-align: center;
+        color: #f7f1e9;
+        border: solid 1px lightgrey;
+        width: 30%;
+        // font-weight: 600;
+    }
+
+
+    &--average {
+        text-align: center;
+        border: solid 1px lightgrey;
+        background-color: #54ACE5;
+        width: 30%;
+    }
+
+    &--average--generalaverage {
+        display: flex;
+        justify-content: center;
+        height : 2rem;
+        align-items: center;
+        font-size: 0.6rem;
+        padding: 0.1rem;
+
+        @media screen and (min-width: 992px) {
+            font-size: 1rem;
+          }
+    }
+
+    &--average--generalaverage--badgrade {
+        background-color: vars.$deleteColor;
+        font-weight: bold;
+        margin-left: 0.5rem;
+        padding: 0.3rem;
+    }
+
+    &--average--generalaverage--topgrade {
+        background-color: vars.$blue;
+        color: vars.$cream;
+        padding: 0.3rem;
+        font-weight: bold;
+        margin-left: 0.5rem;
+    }
+
+}
+
+
+.btn__showresources {
+    border: 0px;
+    background-color: rgb(52, 183, 117);
+    font-weight: 600;
+}
+
+
+.btn__showresources:hover {
+    transform:scale(1.4);
+    transition: 0.8s;
+}
+
+
+// .table__content--average--generalaverage {
+//         // display: flex;
+//         justify-content: flex-end;
+//         text-align: right;
+//         border: solid 1px lightgrey;
+//         background-color: #54ACE5;
+//         }
+
+
+
+
+//---Teacher Marks---//
+
+.teacherMarks {
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+    .marks {
+        &__navlink {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: vars.$greyInactive;
+            margin-right: 2rem;
+
+        &__liste {
+            border-bottom: 0.1em solid vars.$greyLight;
+
+            @media screen and (min-width: 992px) { 
+                display: flex;
+                margin-bottom: 2rem;
+                padding-bottom : 1rem
+            }
+        }
+
+            &__item {
+                transition: 0.2s transform cubic-bezier(.17,.67,.83,.67);
+            
+                &:hover {
+                    transform: scale(1.1);
+                    color: vars.$greyInactiveAlt;
+                }
+            }  
+        }
+        
+        &__navlink.active {
+            color: vars.$blue;
+        }
+        
+        &__navlink__container {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .teacherMarksClassroom__link {
+        padding: 0.5rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+
+        @media screen and (min-width: 992px) { 
+            width: 50%;
+        }
+    }
+
+    .teacherMarksClassroom__title {
+        padding: 0.5rem;
+        width: 100%;
+
+        @media screen and (min-width: 992px) { 
+            width: 50%;
+        }
+
+        &::placeholder{
+            font-style: italic;
+            color: vars.$grey;
+        }
+
+        &:focus {
+            border: 0.1em solid vars.$green;
+            box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+
+
+    .teacherMarksClassroom__addBtn {
+    font-weight: 600;
+    padding: 0.7rem;
+    background-color: vars.$green;
+    border: 0;
+    color: #fff;
+    margin-top: 1rem;
+    width: 10em;
+    align-self: flex-end;
+
+    &:hover {
+      color: #000;
+      background-color:vars.$greenAlt;
+    }
+  }
+
+    &__item {
+        margin: 1.5rem;
+
+        &--student {
+            display: inline-block;
+            width: 170px;
+        }
+
+        &--input {
+            width: 5em;
+            border-radius: 1em;
+            border: 0.1em solid vars.$grey;
+            padding: 0.5rem;
+
+            &:hover {
+                border: 2px solid black;
+            }
+
+            &:focus {
+                border: 0.1em solid vars.$green;
+                box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+            }
+        }
+
+    }
+
+    &__numberContent {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    &__number {
+        width: 3em;
+        height: 3em;
+        margin: 0 0 0.5rem 0.5rem;
+        font-weight: 600;
+        background-color: vars.$blue;
+        color: vars.$cream;
+        text-align: center;
+
+        &:hover {
+            background-color: vars.$blueAlt;
+        }
+    }
+}
+
+
+//---Teacher Marks Modal----//
+.teacherMarks__modal__container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(189, 185, 185, 0.5);
+}
+
+.teacherMarks__modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    z-index: 4;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 32px 32px 60px #4d4b4b;
+
+    & p {
+        padding: 12px;
+    }
+}
+
+.teacherMarks__modal__button {
+    padding: 0.5rem 1rem;
+    margin: 10px;
+    width: 80px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #E8E8E8;
+    background-color: #FFF;
+
+    transition: 0.5s;
+}
+
+.teacherMarks__modal__button--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: #E8E8E8;
+
+    transition: 0.5s;
+}
+
+.teacherMarks__modal__button.accept {
+    background: #60d399;
+    color: #FFF;
+
+    &:hover {
+        background: #FFF;
+        color: #60d399;
+        border-color: #60d399;
+    }
+}
+
+.teacherMarks__modal__button.cancel {
+    border-color: #9A031E;
+    color: #9A031E;
+
+    &:hover {
+        background: #9A031E;
+        color: #FFF;
+
+    }
+}
+
+//---Teacher Marks Average Personal Space----//
+
+.teacherMarks-average {
+    border-top: 0.1em solid vars.$greyLight;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {  
+        margin: 2rem;
+        text-align: center;
+    }
+
+    
+    &__liste {
+        width: 113%;
+
+        @media screen and (min-width: 992px) { 
+            min-width: 15em;
+            width: 20em;
+          }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    
+    &__number {
+        background-color: vars.$blue;
+        width: 8em;
+        padding: 0.5rem;
+        color: #fff;
+        font-weight: 700;
+        margin-left: 0.5rem;
+
+        @media screen and (min-width: 992px) { 
+            font-size: 1.5em;
+          }
+      
+    }
+  
+}
+

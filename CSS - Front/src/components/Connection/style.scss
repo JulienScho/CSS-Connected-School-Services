@@ -1,0 +1,156 @@
+@use '../../styles/vars';
+
+.connection { 
+
+    &__title {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &__item {
+        padding: 1rem;
+        position: relative;
+    }
+
+    &__item:hover .dropdown {display: block;}
+
+    &__button {
+        color: vars.$grey;
+        display: flex;
+        align-items: center;
+        background: none;
+        border: 0;
+        font-size: 1rem;
+    }
+
+    &__icon svg {
+        width: 2.5em;
+        height: 2.5em;
+    }
+
+    .connected {
+        color: green;
+    }
+
+    &__text {
+        display: none;
+
+        @media screen and (min-width: 992px) { 
+            display: block;
+            margin-left: 1rem;
+            font-family: vars.$fontFamily;
+            font-size: 1.2em;;
+        }
+    }
+
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        margin: 2rem auto;
+       
+    }
+
+    &__label {
+        margin-bottom: 0.5rem;
+    }
+
+    &__input {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+    }
+
+    &__btn {
+        background: vars.$green;
+        border: 0;
+        padding: 1rem;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 0.5em;
+    }
+
+    &__btn:hover{
+        background-color: vars.$greenAlt;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 4rem;
+        border: solid 0.1em vars.$grey;
+        width: 18rem;
+        border-radius: 1em;
+        background-color: #fff;
+
+        &__text {
+            padding-left: 0.5rem;  
+        }
+
+        .deconnection {
+            background: none;
+            border: 0;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+    }
+
+    .dropdown a {
+        color: black;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {
+        background-color: vars.$green;
+        border-radius: 1em;  
+        color: #fff;   
+    }
+
+}
+
+.login {
+    position: fixed;
+    top: 7.1rem;
+    right: 3%;
+    padding: 2rem;
+    background-color: vars.$blueLight;
+    width: 19em;
+    transition: 0.4s transform cubic-bezier(.25,.52,.72,.8);
+    box-shadow: 0 2em 2em rgb(34, 34, 34, 20%);
+    z-index: 1000;
+    
+
+    @media screen and (min-width: 992px) { 
+        right: 0;
+        box-shadow: 0 1em 1em rgb(34, 34, 34, 20%);
+    }
+
+    &--hidden {
+        transform: translateX(150%);
+    }
+
+    &__close svg {
+        width: 2rem;
+        height: 2rem; 
+        margin-left: 12rem;
+
+        @media screen and (min-width: 992px) { 
+            margin-left: 0;
+        }
+    }
+
+    &__forget {
+        margin-left: 3rem;
+        text-decoration: underline;
+        font-size: 0.8em;
+
+        &:hover {
+            color: vars.$blueAlt;
+        }
+    }
+}
