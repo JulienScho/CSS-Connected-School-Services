@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ajouter une classe - {{parent()}} 
+{% endblock %}
+
+{% block body %}
+<section class="container">
+    <div class="form-signin">
+        <h1 class="h3 mb-3 fw-bold fst-italic text-center">Ajouter les élèves</h1>
+
+        <div class="form-floating ">
+        {{ form_start(formView) }}
+        </div>
+            <div class="form-floating my-2">
+            {{ form_label(formView.users) }}
+            {{ form_widget(formView.users) }}
+             </div>
+
+        {{ form_end(formView) }}
+        </div>
+    </section>
+</main>
+{% endblock %}

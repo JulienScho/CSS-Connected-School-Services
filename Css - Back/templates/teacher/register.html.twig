@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ajouter un professeur - {{parent()}} 
+{% endblock %}
+
+{% block body %}
+<section class="container">
+    <div class="form-signin">
+        <h1 class="h3 mb-3 fw-bold fst-italic text-center">Ajouter un professeur</h1>
+
+        <div class="form-floating ">
+        {{ form_start(formView) }}
+        </div>
+            <div class="form-floating my-2">
+            {{ form_widget(formView.email) }}
+            {{ form_label(formView.email) }}
+             </div>
+            <div class="form-floating my-2">
+            {{ form_widget(formView.lastname)}}
+            {{ form_label(formView.lastname)}}
+            </div>
+            <div class="form-floating my-2">
+            {{ form_widget(formView.firstname)}}
+            {{ form_label(formView.firstname)}}
+            </div>
+            <div class="form-floating my-2">
+            {{ form_widget(formView.discipline)}}
+            {{ form_label(formView.discipline)}}
+            </div>
+            <div class="form-floating my-2">
+            {{ form_label(formView.classroom)}}
+            {{ form_widget(formView.classroom)}}
+            </div>
+
+        {{ form_end(formView) }}
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ajouter un élève - {{parent()}} 
+{% endblock %}
+
+{% block body %}
+<section class="container">
+    <div class="form-signin">
+        <h1 class="h3 mb-3 fw-bold fst-italic text-center">Ajouter un élève</h1>
+
+        <div class="form-floating ">
+        {{ form_start(registrationForm) }}
+        </div>
+            <div class="form-floating my-2">
+            {{ form_widget(registrationForm.email) }}
+            {{ form_label(registrationForm.email) }}
+             </div>
+            <div class="form-floating my-2">
+            {{ form_widget(registrationForm.lastname)}}
+            {{ form_label(registrationForm.lastname)}}
+            </div>
+            <div class="form-floating my-2">
+            {{ form_widget(registrationForm.firstname)}}
+            {{ form_label(registrationForm.firstname)}}
+            </div>
+            <div class="form-floating my-2">
+            {{ form_widget(registrationForm.adress)}}
+            {{ form_label(registrationForm.adress)}}
+            </div>
+            <div class="form-floating my-2">
+            {{ form_widget(registrationForm.phone)}}
+            {{ form_label(registrationForm.phone)}}
+            </div>
+        
+
+            <button type="submit" class="w-100 btn btn-lg btn-secondary">Enregistrer</button>
+        {{ form_end(registrationForm) }}
+        </div>
+    </section>
+</main>
+{% endblock %}

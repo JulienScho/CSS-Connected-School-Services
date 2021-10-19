@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% import "macro/macro.html.twig" as macro %}
+{% block title %}
+    Liste des classes - {{parent()}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Liste des classes</h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-1">
+                
+                {% for key, classroom in class %}
+                    {# <li class="list-group-item text-center"><a href="#" class="nolink">{{classroom.getName() }}</a> </li> #}
+                    <div class="col">
+                    <div class="card border-light w-50 mx-1 my-1 text-center">
+                        <div class="card-header fw-bold">{{classroom.getName()}}</div>
+                        <div class="card-body">
+                            {# <h5 class="card-title"> </h5> #}
+                            <p class="card-text fst-italic">Voir le détail de la classe</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#classModal{{key}}" style="text-decoration: none; color: black;">
+                            <p class="nolink">Ici</p>
+                            </a>
+                            {{macro.class_modal(key, classroom)}}
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            
+        </div>
+    </div>
+    <a href="{{path('classroom_home')}} " class="fst-italic nolink fw-bold">Retour à la liste</a>
+</div>
+
+{% endblock %}

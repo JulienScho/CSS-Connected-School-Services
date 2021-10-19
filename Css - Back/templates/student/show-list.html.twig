@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Liste des élèves - {{parent()}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Liste des élèves de la classe {{classroom.getName()}}</h2>
+        </div>
+
+        <div class="col-md-10 mx-auto">
+            <table class="table list-group-flush">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>E-Mail</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for student in classroom.users %}
+                    <tr>
+                        <td>{{student.id}}</td>
+                        <td>{{student.lastname}}</td>
+                        <td>{{student.firstname}}</td>
+                        <td>{{student.email}}</td>
+                        <td>
+                            <a style="text-decoration: none; color: white;" href="{{ path('student_show', {id: student.id})}}" class="card-link badge rounded-pill bg-secondary">Détail</a>
+                            <a style="text-decoration: none; color: white; " href="{{ path('student_update', {id : student.id})}}" class="card-link badge rounded-pill bg-success mx-2">Edit</a>
+                            <a style="text-decoration: none; color: white; " href="{{ path('student_delete', {id : student.id})}}" class="card-link badge rounded-pill bg-danger mx-2">Suppr.</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{path('student_home')}} " class="badge bg-secondary my-2" style="width: 85px; color: white; text-decoration: none">Retour</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

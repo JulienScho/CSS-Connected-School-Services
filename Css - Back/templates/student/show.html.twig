@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{user.lastname}} {{user.firstname}} - {{parent()}}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+             <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">{{user.lastname}} {{user.firstname}}</h2>
+        </div>
+
+        <div class="col-md-12">
+            <table style="width: 800px;" class="table  list-group-flush mx-auto">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.adress ? user.adress : 'Non renseigné' }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ user.phone ? user.phone : 'Non renseigné' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+  
+    </table>
+        </div>
+            <a href="{{app.request.headers.get('referer')}} " class="badge bg-secondary my-2" style="width: 85px; color: white; text-decoration: none">Retour</a>
+    </div>
+</div>
+{% endblock %}

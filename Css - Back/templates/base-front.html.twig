@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='fr'>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} Connected School Services {% endblock %}</title>
+
+        {% block stylesheets %}
+            <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="{{asset('css/bootstrap.css')}} ">
+            <link rel="stylesheet" href="{{asset('css/styles.css')}} ">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+        {% endblock %}
+
+    </head>
+
+    <body>
+    <header>
+        {# LOGO PART #}
+        <nav class="navbar navbar-expand-md  sticky-top" style="background-color: white; border-bottom: 1px solid #e9e8ea; box-shadow: 0px 15px 6px #e9e8ea">
+            <div class="container">
+                <img src="{{asset('img/logo-css.png')}}" style="width : 120px">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                {# PAGES LINKS #}
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                <h2 class="fw-bold mb-4 text-muted text-center mx-auto" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Connected School Services</h2>
+                </div>
+                    
+                
+            </div>
+        </nav>
+    </header>
+    {% include "partials/_flash.html.twig" %}
+        <main>
+            <section class="row">
+                <div class="mx-auto text-center">
+                    <div>
+                    {% block content %}
+                    {% endblock %}
+                    </div>
+                </div>
+            </section>
+        </main>
+        {% block javascripts %}
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script src="{{asset('js/bootstrap.js')}} "></script>
+        {% endblock %}
+    </body>
+</html>

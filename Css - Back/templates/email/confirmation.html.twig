@@ -1,0 +1,30 @@
+{% extends "base-front.html.twig" %}
+{% block title %}
+    Confirmation inscription - {{parent()}}
+{% endblock %}
+{% block content %}
+    <div class="col-md-12 py-5 mx-auto" style="width: 600px">
+        <h1 class="h3 mb-3 fw-bold fst-italic text-center">Activation de votre compte</h1>
+        
+        <p class="fst-italic">Afin de pouvoir activer votre compte, merci de définir le mot de passe de votre compte, qui vous sera personnel. Et votre identifiant de connexion sera votre email qui nous a été fourni. </p>
+    </div>
+    <div class="form-signin py-5">
+
+        <div class="form-floating">
+        {{form_start(formView)}}
+        </div>
+
+            <div class="form-floating my-2">
+                {{ form_widget(formView.plainPassword.first)}}
+                {{ form_label(formView.plainPassword.first)}}
+            </div>
+            <div class="form-floating my-2">
+                {{ form_widget(formView.plainPassword.second)}}
+                {{ form_label(formView.plainPassword.second)}}
+            </div>
+
+            <button type="submit" class="w-100 btn btn-lg btn-secondary">Confirmation</button>
+        {{form_end(formView)}}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,269 @@
+html,
+body {
+    height: 100%;
+    /* margin-top: 25px; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+  
+  /* The app flash close button */
+.closebtn {
+    margin-left: 15px;
+    color: gray;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+/* When moving the mouse over the close button */
+.closebtn:hover {
+color: black;
+}
+
+colorstylect{
+    color: #e3f2fd;
+}
+
+:root {
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 56px; 
+    --bs-cyan: #0dcaf0;
+}
+
+.sidebar-nav{
+    width: var(--offcanvas-width);
+}
+
+.sidebar-link{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link .right-icon{
+    display: inline-flex;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon{
+    transform: rotate(180deg);
+    transition: all ease 0.25s;
+}
+
+@media (min-width:992px) {
+    body{
+        overflow: auto !important;
+    }
+    .offcanvas-backdrop::before{
+        display: none;
+    }
+    main {
+        margin-left: var(--offcanvas-width);
+    }
+    .sidebar-nav{
+        transform: none;
+        visibility: visible !important;
+        top:var(--topNavbarHeight);
+        height: calc(100% - var(--topNavbarHeight));
+    }
+}
+
+.nolink, .nolink a, .nolink:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.nolink:hover, .nolink:active{
+    text-decoration: none;
+    color: #34b775;
+}
+
+/* CARDS */
+
+.corps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    color: #111;
+}
+
+.contenu{
+    position: relative;
+}
+
+.contenu .carte{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    /* background: #111; */
+    background: whitesmoke;
+    border: 2px solid  grey;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.contenu .carte::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #34b775;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.contenu .carte:hover:before{
+    clip-path: circle(300px at 80% -20%);
+}
+
+.contenu .carte::after{
+    content: 'CSS';
+    position: absolute;
+    top: 40%;
+    left: -18%;
+    font-size: 10em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-style: italic;
+    color: rgba(12, 12, 12, 0.082);
+}
+
+.contenu .carte .imgBx{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+}
+
+.contenu .carte:hover .imgBx{
+    top: 0%;
+    transform: translateY(0%);
+}
+
+.contenu .carte .imgBx img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+    
+}
+
+.contenu .carte .contentBx{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.contenu .carte:hover .contentBx{
+    height: 210px;
+}
+
+.contenu .carte .contentBx h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #111;
+}
+
+.contenu .carte .contentBx .infosNB,
+.contenu .carte .contentBx .infosOther{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.contenu .carte:hover .contentBx .infosNB{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.contenu .carte:hover .contentBx .infosOther{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.6s;
+}
+
+.contenu .carte .contentBx .infosNB h3,
+.contenu .carte .contentBx .infosOther h3
+{
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.contenu .carte .contentBx .infosNB span,
+.contenu .carte .contentBx .infosOther span
+{
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 17px;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 5px;
+    transition: 0.5s;
+}
+
+.contenu .carte .contentBx a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #111;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+
+.contenu .carte:hover .contentBx a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}

@@ -1,0 +1,80 @@
+security:
+    # https://symfony.com/doc/current/security/authenticator_manager.html
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#c-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        
+        App\Entity\User:
+            algorithm: auto
+
+        App\Entity\Teacher:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+        app_teacher_provider:
+            entity:
+                class: App\Entity\Teacher
+                property: email
+
+        chain_provider:
+            chain:
+                providers: ['app_user_provider', 'app_teacher_provider']
+
+    firewalls:
+        login:
+            pattern: ^/api/login
+            stateless: true
+            provider: chain_provider
+            json_login:
+                check_path: /api/login_check
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api:
+            pattern:   ^/api
+            stateless: true
+            anonymous: false
+            provider: chain_provider
+            jwt: ~
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            user_checker: App\Security\UserChecker
+            lazy: true
+            provider: chain_provider
+            custom_authenticator: App\Security\UserLoginAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                target: app_login
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/v1/homeannounce, roles: PUBLIC_ACCESS }
+        - { path: ^/activation, roles: PUBLIC_ACCESS }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/backoffice, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_TEACHER: ROLE_USER
+        ROLE_ADMIN: ROLE_TEACHER

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des classes - {{parent()}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Liste des classes</h2>
+        </div>
+
+        <div class="col-md-12 my-2">
+            <ul style="width: 600px;" class="list-group list-group-flush mx-auto">
+                    <li class="list-group-item text-center fw-bold fst-italic">Veuillez séléctionner un niveau :</li>
+            </ul>
+        </div>
+        <div class="col-md-12 my-2">
+            <table style="width: 800px;" class="table  list-group-flush mx-auto">
+            <tbody>
+                <tr>
+                    <th><a href=" {{path('classroom_list', {'id' : '6'})}} " class="nolink"> 6 ème</a></th>
+                    <th><a href="{{path('classroom_list', {'id' : '5'})}}" class="nolink"> 5 ème</a></th>
+                    <th><a href="{{path('classroom_list', {'id' : '4'})}}" class="nolink"> 4 ème</a></th>
+                    <th><a href="{{path('classroom_list', {'id' : '3'})}}" class="nolink"> 3 ème</a></th>
+                </tr>
+            </tbody>
+            </table> 
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

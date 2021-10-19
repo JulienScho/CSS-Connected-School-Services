@@ -1,0 +1,43 @@
+{%- macro class_modal(key, classroom) -%}
+<div class="modal fade" id="classModal{{key}}" tabindex="-1" aria-labelledby="classModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    {# HEADER #}
+      <div class="modal-header">
+        <h5 class="modal-title" id="classModalLabel">Classe de {{classroom.getName()}} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      {# BODY #}
+      <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="fst-italic fw-bold">Liste des étudiants :</p>
+                {% for student in classroom.users %}
+                    <p> {{student.getFirstname()}} {{student.getLastname()}} </p>
+                {% endfor %}
+            </div>
+            <div class="col-md-6">
+                <p class="fst-italic fw-bold">Liste professeurs :</p>
+                {% for teacher in classroom.teachers %}
+                    <p>{{teacher.getFirstname()}} {{teacher.getLastname()}}
+                     <i> ({{teacher.discipline.getName()}})</i> </p>
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+     
+      </div>
+
+      {# FOOTER #}
+      <div class="modal-footer">
+        <a href="{{path('classroom_delete', {id: classroom.id})}} " class="btn btn-outline-danger">Supprimer</a>
+        <a href="{{path('classroom_update', {id: classroom.id})}} " class="btn btn-outline-secondary">Éditer</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+{%- endmacro -%}

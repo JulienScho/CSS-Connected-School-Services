@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Éditer classe - {{parent()}}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+             <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Modifier classe 1/2</h2>
+        </div>
+
+        <div class="col-md-12">
+            <section class="py-5  container">
+                <div class="form-signin py-5">
+
+                    <div class="form-floating ">
+                    {{ form_start(formView) }}
+                    </div>
+                        <div class="form-floating my-2">
+                        {{ form_widget(formView.grade) }}
+                        {{ form_label(formView.grade) }}
+                        </div>
+                        <div class="form-floating my-2">
+                        {{ form_widget(formView.letter)}}
+                        {{ form_label(formView.letter)}}
+                        </div>
+                        <div class="form-floating my-2">
+                        {{ form_label(formView.teachers)}}
+                        {{ form_widget(formView.teachers)}}
+                        </div>
+                    {{ form_end(formView) }}
+                    </div>
+                </section>
+        </div>
+    </div>
+
+<a href="{{app.request.headers.get('referer')}} " class="badge bg-secondary my-2" style="width: 85px; color: white; text-decoration: none">Retour</a>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Liste des professeurs - {{parent()}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Liste des élèves de  {{matiere.name}}</h2>
+        </div>
+
+        <div class="col-md-10 mx-auto">
+            <table class="table list-group-flush">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>E-Mail</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for teacher in matiere.teacher %}
+                    <tr>
+                        <td>{{teacher.id}}</td>
+                        <td>{{teacher.lastname}}</td>
+                        <td>{{teacher.firstname}}</td>
+                        <td>{{teacher.email}}</td>
+                        <td>
+                            <a style="text-decoration: none; color: white;" href="{{ path('teacher_show', {id: teacher.id})}}" class="card-link badge rounded-pill bg-secondary">Détail</a>
+                            <a style="text-decoration: none; color: white; " href="{{path('teacher_update', {id: teacher.id})}} " class="card-link badge rounded-pill bg-success mx-2">Edit</a>
+                            <a style="text-decoration: none; color: white; " href="{{path('teacher_delete', {id: teacher.id})}} " class="card-link badge rounded-pill bg-danger mx-2">Suppr.</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{path('teacher_home')}} " class="badge bg-secondary my-2" style="width: 85px; color: white; text-decoration: none">Retour</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

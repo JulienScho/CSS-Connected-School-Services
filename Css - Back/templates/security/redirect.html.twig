@@ -1,0 +1,27 @@
+{% extends "base-front.html.twig" %}
+{% block title %}
+    Redirection - {{parent()}}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-12 py-5 mx-auto">
+    <h1 class="h3 fw-bold fst-italic text-center">Redirection</h1>
+</div>
+
+<div class="col-md-12">
+    <p>Vous allez être redirigé automatiquement dans </p><div id="counter">5</div>
+    <a href="http://connectedschoolservices.surge.sh/"><p class="fst-italic">Ou cliquez directement ici ...</p></a>
+    <script>
+        setInterval(function() {
+            var div = document.querySelector("#counter");
+            var count = div.textContent * 1 - 1;
+            div.textContent = count;
+            if (count <= 0) {
+                window.location.replace("http://connectedschoolservices.surge.sh/")
+            }
+        }, 1000);
+    </script>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{# Displaying Flash Messages with Bootstrap classes #}
+
+<div class="position-absolute top-35 start-50 mt-3">
+{% for label, messages in app.flashes %}
+    {% for message in messages %}   
+            <div class="alert alert-{{ label }}" role="alert">
+                {{ message }}
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            </div>
+    {% endfor %}
+{% endfor %}
+</div>    

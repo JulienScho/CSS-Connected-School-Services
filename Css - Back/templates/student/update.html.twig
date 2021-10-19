@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{user.lastname}} {{user.firstname}} - {{parent()}}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+             <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Modifier utilisateur</h2>
+        </div>
+
+        <div class="col-md-12">
+            <section class="py-5  container">
+                <div class="form-signin py-5">
+
+                    <div class="form-floating ">
+                    {{ form_start(registrationForm) }}
+                    </div>
+                        <div class="form-floating my-2">
+                        {{ form_widget(registrationForm.email) }}
+                        {{ form_label(registrationForm.email) }}
+                        </div>
+                        <div class="form-floating my-2">
+                        {{ form_widget(registrationForm.lastname)}}
+                        {{ form_label(registrationForm.lastname)}}
+                        </div>
+                        <div class="form-floating my-2">
+                        {{ form_widget(registrationForm.firstname)}}
+                        {{ form_label(registrationForm.firstname)}}
+                        </div>
+                        <div class="form-floating my-2">
+                        {{ form_widget(registrationForm.adress)}}
+                        {{ form_label(registrationForm.adress)}}
+                        </div>
+                        <div class="form-floating my-2">
+                        {{ form_widget(registrationForm.phone)}}
+                        {{ form_label(registrationForm.phone)}}
+                        </div>
+                    
+
+                        <button type="submit" class="w-100 btn btn-lg btn-secondary">Modifier</button>
+                    {{ form_end(registrationForm) }}
+                    </div>
+                </section>
+        </div>
+    </div>
+
+<a href="{{app.request.headers.get('referer')}} " class="badge bg-secondary my-2" style="width: 85px; color: white; text-decoration: none">Retour</a>
+</div>
+{% endblock %}

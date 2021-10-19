@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des classes - {{parent()}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="fw-bold mb-4 text-muted text-center" style="text-shadow: 8px 6px 10px rgba(0, 0, 0, 0.350);">Choisir une classe</h2>
+        </div>
+
+        <div class="col-md-12">
+            <ul style="width: 600px;" class="list-group list-group-flush mx-auto">
+                {% for classroom in classrooms %}
+                    <li class="list-group-item text-center"><a href="{{path('student_classroom', {id: classroom.id})}} " class="nolink">{{classroom.getName() }}</a> </li>
+                {% endfor %}
+            
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

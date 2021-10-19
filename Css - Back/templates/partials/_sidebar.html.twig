@@ -1,0 +1,122 @@
+{% block sidebar %}
+{% set currentRoute = app.request.attributes.get('_route') %}
+
+<div class="offcanvas offcanvas-start text-secondary sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="background-color: white;">
+
+<div class="offcanvas-body p-0">
+    <nav class="navbar-light" style="background-color: white;">
+
+        <ul class="navbar-nav">
+            {# <li>
+                <img src="{{asset('img/logo-css.png')}}" style="width : 120px;">
+            </li> #}
+            <li>
+                <div class="text-muted small fw-bold text-uppercase px-3">
+                    Administration
+                </div>
+            </li>
+            {# STUDENT PART #}
+            <li>
+                <a class="nav-link px-3 sidebar-link " data-bs-toggle="collapse" href="#collapseStudent" role="button" aria-expanded="false" aria-controls="collapseStudent">
+                <span class="me-2"> <i class="fas fa-graduation-cap"></i> </span>
+                <span>Gestion des élèves</span>
+                <span class="right-icon ms-auto"> 
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                </a>
+                <div class="collapse" id="collapseStudent">
+                    <div>
+                        <ul class="navbar-nav ps-3">
+                            <li>
+                                <a href="{{path('student_add')}}" class="nav-link px-3">
+                                    <span class="me-2"> <i class="fas fa-user-graduate"></i> </span>
+                                    <span>Ajouter un nouvel élève</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{path('student_home')}} " class="nav-link px-3">
+                                    <span class="me-2"><i class="fas fa-users"></i> </span>
+                                    <span>Liste des élèves</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            {# TEACHER PART #}
+            <li>
+                <a class="nav-link px-3 sidebar-link " data-bs-toggle="collapse" href="#collapseTeacher" role="button" aria-expanded="false" aria-controls="collapseTeacher">
+                <span class="me-2"> <i class="fas fa-chalkboard-teacher"></i> </span>
+                <span>Gestion professeurs</span>
+                <span class="right-icon ms-auto"> 
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                </a>
+                <div class="collapse" id="collapseTeacher">
+                    <div>
+                        <ul class="navbar-nav ps-3">
+                            <li>
+                                <a href="{{path('teacher_add')}} " class="nav-link px-3">
+                                    <span class="me-2"> <i class="fas fa-user-tie"></i> </span>
+                                    <span>Ajouter un nouveau prof</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{path('teacher_home')}} " class="nav-link px-3">
+                                    <span class="me-2"><i class="fas fa-users"></i> </span>
+                                    <span>Liste des professeurs</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li class="my-4">
+                <hr class="dropdown-divider" />
+            </li> 
+
+            {# GESTION PART #}
+            
+            <li>
+                <div class="text-muted small fw-bold text-uppercase px-3">
+                    établissement
+                </div>
+            </li>
+
+            <li>
+                <a class="nav-link px-3 sidebar-link " data-bs-toggle="collapse" href="#collapseSchool" role="button" aria-expanded="false" aria-controls="collapseSchool">
+                <span class="me-2"> <i class="fas fa-school"></i> </span>
+                <span>Gestion classes</span>
+                <span class="right-icon ms-auto"> 
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                </a>
+                <div class="collapse" id="collapseSchool">
+                    <div>
+                        <ul class="navbar-nav ps-3">
+                            <li>
+                                <a href="{{path('classroom_add')}} " class="nav-link px-3">
+                                    <span class="me-2"> <i class="fas fa-pen-fancy"></i> </span>
+                                    <span>Ajouter une classe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{path('classroom_home')}} " class="nav-link px-3">
+                                    <span class="me-2"><i class="fas fa-chalkboard"></i></span>
+                                    <span>Liste des classes</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+</div>
+{# SIDEBAR #}
+
+</div>
+
+{% endblock %}

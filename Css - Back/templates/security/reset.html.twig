@@ -1,0 +1,23 @@
+{% extends "base-front.html.twig" %}
+
+{% block title %}
+    Réinitialisation mot de passe - {{parent()}}
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12 py-5 mx-auto" style="width: 600px">
+        <h1 class="h3 mb-3 fw-bold fst-italic text-center">Réinitialisation de votre mot de passe</h1>
+        
+        <p class="fst-italic">Afin de pouvoir réinitialiser votre mot de passe, merci de renseigner, votre E-Mail ci-dessous </p>
+    </div>
+    <div class="form-signin py-5">
+        <div class="form-floating">
+        {{form_start(formView)}}
+        </div>
+            <div class="form-floating my-2">
+                {{ form_widget(formView.email)}}
+                {{ form_label(formView.email)}}
+            </div>
+        {{form_end(formView)}}
+    </div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Homepage - {{parent()}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+        <h3 class="fw-bold fst-italic mb-4 pt-3 text-center" style="color: #111;">Collège Mark Zuckerberg</h3>
+        </div>
+
+        {# <p class="fst-italic"><a href="{{path('reset')}}">Mot de passe oublié?</a></p> #}
+    <div class="corps">
+
+        <div class="col-md-4">
+            <div class="contenu">
+                <div class="carte">
+                    <div class="imgBx">
+                        <img src="{{asset('img/student.png') }}" style="width: 160px;" alt="">
+                    </div>
+                    <div class="contentBx">
+                        <h2>Élèves</h2>
+                        <div class="infosNB">
+                            <h3>Nb d'élèves</h3>
+                            <span>{{user}} </span>
+                        </div>
+                        <div class="infosOther">
+                            <h3>Nb de classes</h3>
+                            <span>{{classroom}} </span>
+                        </div>
+                        <a href="{{path('student_home')}}">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="contenu">
+                <div class="carte">
+                    <div class="imgBx">
+                        <img src="{{asset('img/teacher.png') }}" style="width: 200px;" alt="">
+                    </div>
+                    <div class="contentBx">
+                        <h2>Professeurs</h2>
+                        <div class="infosNB">
+                            <h3>Nb de professeurs</h3>
+                            <span>{{teacher}} </span>
+                        </div>
+                        <div class="infosOther">
+                            <h3>Nb de matières</h3>
+                            <span>{{discipline}} </span>
+                        </div>
+                        <a href="{{path('teacher_home')}} ">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="contenu">
+                <div class="carte">
+                    <div class="imgBx">
+                        <img src="{{asset('img/books.png') }}" style="width: 200px;" alt="">
+                    </div>
+                    <div class="contentBx">
+                        <h2>Classes</h2>
+                        <div class="infosNB">
+                            <h3>Nb de classes</h3>
+                            <span>{{classroom}} </span>
+                        </div>
+                        <a href="{{path('classroom_home')}}">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</div>
+
+{% endblock %}
